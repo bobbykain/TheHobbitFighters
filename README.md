@@ -1,2 +1,2 @@
-# gamedev-p2
+# The Hobbit Fighters
 Game Dev Project 2
