@@ -7,8 +7,10 @@ public class OriHealth : MonoBehaviour
 {
     public float CurrentHealth { get; set; }
     public float MaxHealth { get; set; }
-
+    private GameObject Morty;
     public Slider healthBar;
+    public AudioSource oriStab;
+
 
     // Use this for initialization
     void Start()
@@ -16,16 +18,18 @@ public class OriHealth : MonoBehaviour
         MaxHealth = 20f;
         CurrentHealth = MaxHealth;
         healthBar.value = CalculateHealth();
+        Morty = GameObject.FindWithTag("Morty");
+        InvokeRepeating("Attack", 3.0f, 3.0f);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            DealDamage(2);
-            // Morty.DealDamage(2);
-        }
+    void Update() {
+
+    }
+
+    void Attack() {
+        Morty.GetComponent<BilboHealth>().DealDamage(2);
+        oriStab.Play();
     }
 
     void DealDamage(float damageValue)

@@ -23,7 +23,7 @@ public class BilboHealth : MonoBehaviour {
 		}
 	}
 
-	void DealDamage(float damageValue) {
+	public void DealDamage(float damageValue) {
 		// Deduce the damage dealt from the character's health
 		CurrentHealth -= damageValue;
 		healthBar.value = CalculateHealth();
@@ -33,11 +33,11 @@ public class BilboHealth : MonoBehaviour {
 		}
 	}
 
-	float CalculateHealth() {
+	public float CalculateHealth() {
 		return CurrentHealth / MaxHealth;
 	}
 
-	void Die() {
+	public void Die() {
 		CurrentHealth = 0;
 		Debug.Log("you dead");
 	}
